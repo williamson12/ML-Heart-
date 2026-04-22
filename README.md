@@ -1,140 +1,252 @@
-Heart Disease Prediction using Machine Learning
-    An automated ML-based system to assist medical professionals in early screening of cardiovascular diseases using clinical parameters.
 
-Overview
-Cardiovascular diseases (CVDs) are the leading cause of death globally. Early detection is critical for effective treatment and prevention, yet manual diagnosis can be time-consuming and prone to human error. This project develops a predictive model that identifies the presence of heart disease based on clinical parameters, achieving 83.6% accuracy with a 97.0% recall rate to minimize false negatives.
-Dataset
-Table
-Property	Details
-Source	UCI Machine Learning Repository — Cleveland Heart Disease Dataset
-Size	303 rows × 14 clinical features
-Target	target (0 = No Disease, 1 = Heart Disease)
-Key Features
-Table
-Feature	Description
-age	Age in years
-sex	Sex (1 = male, 0 = female)
-cp	Chest pain type
-trestbps	Resting blood pressure (mm Hg)
-chol	Serum cholesterol (mg/dl)
-thalach	Maximum heart rate achieved
-ca	Number of major vessels colored by fluoroscopy
-slope	Slope of the peak exercise ST segment
-Project Pipeline
-plain
-Copy
+<div align="center">
 
-Raw Data → Preprocessing → EDA → Model Training → Evaluation → Streamlit Dashboard
+# ❤️ Heart Disease Prediction
 
-1. Data Preprocessing
+**Machine Learning-powered early screening for cardiovascular diseases**
 
-    Missing Values: Checked for null values (none found in cleaned version)
-    Feature Scaling: Applied StandardScaler to normalize numerical features
-    Data Splitting: 80% Training / 20% Testing
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-22c55e)](LICENSE)
 
-2. Exploratory Data Analysis (EDA)
+| Accuracy | Recall | Selected Model |
+|:--------:|:------:|:--------------:|
+| **83.6%** | **97.0%** | **Random Forest** |
 
-    Correlation heatmap to identify feature relationships
-    Target distribution analysis (balanced dataset)
-    Feature importance ranking
+</div>
 
-3. Model Comparison
-Table
-Model	Accuracy	Precision	Recall	F1-Score
-Logistic Regression	80.3%	76.9%	90.9%	83.3%
-Random Forest ⭐	83.6%	78.0%	97.0%	86.5%
-SVM	82.0%	77.5%	93.9%	84.9%
-Selected Model: Random Forest Classifier
+---
 
-    Highest overall accuracy (83.6%)
-    Exceptional recall (97.0%) — crucial for healthcare to minimize false negatives
-    Robustness to outliers and ability to capture complex feature interactions
+## 📋 Table of Contents
 
-Installation
-bash
-Copy
+- [Overview](#-overview)
+- [Dataset](#-dataset)
+- [Pipeline](#-pipeline)
+- [Model Comparison](#-model-comparison)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Results](#-results)
+- [Future Scope](#-future-scope)
+- [License](#-license)
 
-# Clone the repository
+---
+
+## 🎯 Overview
+
+> **"Early detection saves lives."**
+
+Cardiovascular diseases (CVDs) are the **#1 cause of death globally**. Manual diagnosis is time-consuming and error-prone. This project delivers an **automated ML system** that predicts heart disease risk from clinical data in real-time.
+
+| Metric | Value |
+|--------|-------|
+| 🎯 **Accuracy** | **83.6%** |
+| 🔍 **Recall** | **97.0%** *(minimizes false negatives)* |
+| ⚡ **Inference** | Real-time via Streamlit |
+| 🏥 **Use Case** | Clinical early screening |
+
+---
+
+## 📊 Dataset
+
+[![UCI](https://img.shields.io/badge/UCI-Repository-0366d6)](https://archive.ics.uci.edu/ml/datasets/heart+disease)
+[![Rows](https://img.shields.io/badge/Rows-303-6b7280)]()
+[![Features](https://img.shields.io/badge/Features-14-6b7280)]()
+
+**Source**: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/heart+disease) — Cleveland Heart Disease Dataset
+
+### 🔑 Key Features
+
+| Feature | Description | Type |
+|:-------:|:------------|:----:|
+| `age` | Age in years | 🔢 |
+| `sex` | Sex (1=male, 0=female) | 🔢 |
+| `cp` | Chest pain type | 📊 |
+| `trestbps` | Resting blood pressure (mm Hg) | 🔢 |
+| `chol` | Serum cholesterol (mg/dl) | 🔢 |
+| `thalach` | Maximum heart rate achieved | 🔢 |
+| `ca` | Major vessels colored by fluoroscopy | 🔢 |
+| `slope` | Slope of peak exercise ST segment | 📊 |
+
+**Target**: `target` — `0` = No Disease | `1` = Heart Disease
+
+---
+
+## 🔄 Pipeline
+
+```
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│   Raw Data  │ → │ Preprocessing│ → │     EDA     │ → │    Model    │ → │  Dashboard  │
+│  (303 rows) │    │  StandardScaler│    │  Heatmaps   │    │   Training  │    │  Streamlit  │
+└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
+```
+
+### 🔧 Preprocessing Steps
+
+| Step | Action | Status |
+|:----:|:-------|:------:|
+| 1️⃣ | Missing values check | ✅ None found |
+| 2️⃣ | `StandardScaler` normalization | ✅ Applied |
+| 3️⃣ | Train/Test split (80/20) | ✅ Completed |
+
+---
+
+## 🤖 Model Comparison
+
+[![Best Model](https://img.shields.io/badge/Best%20Model-Random%20Forest-22c55e?style=for-the-badge&logo=checkmarx&logoColor=white)]()
+
+| Model | Accuracy | Precision | Recall | F1-Score | Status |
+|:------|:--------:|:---------:|:------:|:--------:|:------:|
+| Logistic Regression | 80.3% | 76.9% | 90.9% | 83.3% | ⚪ Baseline |
+| **Random Forest** ⭐ | **83.6%** | **78.0%** | **97.0%** | **86.5%** | 🟢 **Selected** |
+| SVM | 82.0% | 77.5% | 93.9% | 84.9% | 🔵 Alternative |
+
+### 🏆 Why Random Forest?
+
+```
+┌─────────────────────────────────────────┐
+│  ✅ Highest accuracy (83.6%)           │
+│  ✅ Exceptional recall (97.0%)           │
+│  │   → Catches 97% of sick patients    │
+│  │   → Minimizes false negatives        │
+│  ✅ Robust to outliers                   │
+│  ✅ Captures complex interactions        │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## 🚀 Installation
+
+```bash
+# 1️⃣ Clone repository
 git clone https://github.com/yourusername/heart-disease-prediction.git
 cd heart-disease-prediction
 
-# Create virtual environment (optional but recommended)
+# 2️⃣ Create virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate      # macOS/Linux
+venv\Scripts\activate          # Windows
 
-# Install dependencies
+# 3️⃣ Install dependencies
 pip install -r requirements.txt
+```
 
-Requirements
-txt
-Copy
+### 📦 Requirements
 
+```txt
 pandas>=1.3.0
 numpy>=1.21.0
 scikit-learn>=1.0.0
 matplotlib>=3.4.0
 seaborn>=0.11.0
 streamlit>=1.0.0
+```
 
-Usage
-Training the Model
-bash
-Copy
+---
 
+## 💻 Usage
+
+### 🎓 Train Model
+```bash
 python train_model.py
+```
 
-Launching the Dashboard
-bash
-Copy
-
+### 🖥️ Launch Dashboard
+```bash
 streamlit run app.py
+```
 
-The dashboard features:
+[![Dashboard](https://img.shields.io/badge/Dashboard-Streamlit-FF4B4B?style=for-the-badge)]()
 
-    Sidebar for patient data input (Age, BP, Cholesterol, etc.)
-    Real-time prediction: High Risk vs Low Risk
-    Probability scores for clinical confidence
-    Designed for ease of use by non-technical medical staff
+**Dashboard Features:**
+- 📝 Sidebar input for patient vitals
+- ⚡ **Real-time prediction**: High Risk vs Low Risk
+- 📊 Probability scores with confidence intervals
+- 🎨 Clean UI for non-technical medical staff
 
-Results & Visualizations
+---
 
-    Confusion Matrix and ROC Curve confirm model reliability
-    Feature importance analysis identifies cp (chest pain), thalach (max heart rate), and ca (major vessels) as most significant predictors
-    Model successfully identifies high-risk patients with high sensitivity
+## 📁 Project Structure
 
-Project Structure
-plain
-Copy
-
+```
 heart-disease-prediction/
-├── data/
-│   └── heart.csv                    # Cleveland dataset
-├── notebooks/
-│   ├── 01_eda.ipynb                 # Exploratory Data Analysis
-│   ├── 02_preprocessing.ipynb       # Data cleaning & scaling
-│   └── 03_model_training.ipynb      # Model comparison & selection
-├── src/
-│   ├── preprocess.py                # Data preprocessing utilities
-│   ├── train.py                     # Model training script
-│   └── predict.py                   # Prediction utilities
-├── app.py                           # Streamlit dashboard
-├── requirements.txt                 # Python dependencies
-├── README.md                        # Project documentation
-└── models/
-    └── random_forest_model.pkl      # Saved best model
+│
+├── 📂 data/
+│   └── heart.csv                          # Cleveland dataset (303 rows)
+│
+├── 📂 notebooks/
+│   ├── 01_eda.ipynb                       # 🔍 Exploratory analysis
+│   ├── 02_preprocessing.ipynb             # 🧹 Data cleaning
+│   └── 03_model_training.ipynb            # 🤖 Model comparison
+│
+├── 📂 src/
+│   ├── preprocess.py                      # Preprocessing utilities
+│   ├── train.py                           # Training pipeline
+│   └── predict.py                         # Inference utilities
+│
+├── 📂 models/
+│   └── random_forest_model.pkl            # 💾 Saved best model
+│
+├── app.py                                 # 🖥️ Streamlit dashboard
+├── requirements.txt                       # 📦 Dependencies
+└── README.md                              # 📖 You are here!
+```
 
-Future Scope
+---
 
-    [ ] Integration with real-time wearable health monitors (IoT)
-    [ ] Training on larger, more diverse datasets for better generalization
-    [ ] Implementing Deep Learning (Neural Networks) for potentially higher accuracy
-    [ ] Adding lifestyle features: smoking, diet, exercise habits
+## 📈 Results
 
-License
-This project is licensed under the MIT License.
-Acknowledgments
+### 🔥 Top Predictive Features
 
-    UCI Machine Learning Repository for the Cleveland Heart Disease Dataset
-    Medical professionals for domain expertise in feature selection
+| Rank | Feature | Importance | Clinical Meaning |
+|:----:|:-------:|:----------:|:-----------------|
+| 🥇 | `cp` | **Highest** | Chest pain type |
+| 🥈 | `thalach` | **High** | Max heart rate |
+| 🥉 | `ca` | **High** | Major vessels |
 
-    Disclaimer: This tool is designed for assistance in early screening only and should not replace professional medical diagnosis. Always consult a qualified healthcare provider for medical decisions.
+### ✅ Validation
+
+- 📊 **Confusion Matrix** — Confirms reliability
+- 📈 **ROC Curve** — AUC analysis
+- 🎯 **97% Recall** — Catches nearly all at-risk patients
+
+---
+
+## 🔮 Future Scope
+
+- [ ] ⌚ **IoT Integration** — Real-time wearable monitors
+- [ ] 🌐 **Larger Datasets** — Multi-ethnic generalization
+- [ ] 🧠 **Deep Learning** — Neural network experiments
+- [ ] 🚬 **Lifestyle Features** — Smoking, diet, exercise tracking
+
+---
+
+## 🙏 Acknowledgments
+
+| Source | Contribution |
+|:-------|:-------------|
+| [UCI ML Repository](https://archive.ics.uci.edu/) | Cleveland Heart Disease Dataset |
+| 🏥 Medical Professionals | Domain expertise & feature guidance |
+
+---
+
+## ⚖️ License
+
+[![MIT](https://img.shields.io/badge/MIT-License-22c55e?style=for-the-badge)]()
+
+This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+> ⚠️ **Medical Disclaimer**
+> 
+> *This tool is designed for **assistance in early screening only** and should **not replace professional medical diagnosis**. Always consult a qualified healthcare provider for medical decisions.*
+
+**Built with ❤️ for better healthcare**
+
+</div>
+
