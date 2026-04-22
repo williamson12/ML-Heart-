@@ -1,9 +1,4 @@
 Heart Disease Prediction using Machine Learning
-https://img.shields.io/badge/Python-3.8+-blue.svg
-https://img.shields.io/badge/scikit--learn-1.0+-orange.svg
-https://img.shields.io/badge/Streamlit-1.0+-red.svg
-https://img.shields.io/badge/License-MIT-green.svg
-
     An automated ML-based system to assist medical professionals in early screening of cardiovascular diseases using clinical parameters.
 
 Overview
